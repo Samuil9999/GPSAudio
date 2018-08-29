@@ -6,7 +6,6 @@ INPUT0 = 16
 INPUT1 = 20
 INPUT2 = 21
 
-
 def gpioCallback(channel):
 	if(channel == INPUT0):
 		global input0
@@ -27,8 +26,8 @@ class RInput:
 		self.delta = 0
 		self.initTimer()
 		GPIO.setmode(GPIO.BCM)
-		#GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-		GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+		GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+		#GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 		#GPIO.setup(number, GPIO.IN)
 		GPIO.add_event_detect(number, GPIO.BOTH, callback=gpioCallback, bouncetime=100)
 		print("RInput:" + str(number) + " created.")
