@@ -10,15 +10,12 @@ INPUT2 = 21
 def gpioCallback(channel):
 	if(channel == INPUT0):
 		global input0
-		print("channel:" + str(channel) + ", counter:" + str(input0.counter))
 		input0.processInterrupt()
 	elif (channel == INPUT1):
 		global input1
-		print("channel:" + str(channel) + ", counter:" + str(input1.counter))
 		input1.processInterrupt()
 	elif (channel == INPUT2):
 		global input2
-		print("channel:" + str(channel) + ", counter:" + str(input2.counter))
 		input2.processInterrupt()
 		
 class RInput:
@@ -30,7 +27,9 @@ class RInput:
 		self.delta = 0
 		self.initTimer()
 		GPIO.setmode(GPIO.BCM)
-		GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+		#GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_UP)
+		GPIO.setup(number, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+		#GPIO.setup(number, GPIO.IN)
 		GPIO.add_event_detect(number, GPIO.BOTH, callback=gpioCallback, bouncetime=100)
 		print("RInput:" + str(number) + " created.")
 	
@@ -39,7 +38,7 @@ class RInput:
 		# if this is a start of pulse, then increment
 		if GPIO.input(self.number) == False:
 			self.counter += 1
-			print("time.time() - lasttime:%s, counter%s" % \
+			print("time.time() - lasttime:%s, counter:%s" % \
 				(time.time() - self.lasttime, self.counter))
 		elif GPIO.input(self.number) == True:
 			self.timer.cancel()
