@@ -124,8 +124,6 @@ void executeCommand() {
     pulse(OUTPIN1, pulseNumber, pulseLength);
   } else if (outputNumber == 2) {
     pulse(OUTPIN2, pulseNumber, pulseLength);
-  } else if (outputNumber == LEDPIN) {
-    pulse(LEDPIN, pulseNumber, 500);
   } else {
     Serial.println(F("Wrong command"));    
   }
@@ -134,8 +132,20 @@ void executeCommand() {
 void pulse(int outputPin, int npulses, int pause) {
   for (int i = 0; i < pulseNumber; i++) {
     digitalWrite(outputPin, HIGH);
+    digitalWrite(LEDPIN, HIGH);
+    Serial.print(outputPin);
+    Serial.print(",");
+    Serial.print(i);
+    Serial.print(",");
+    Serial.println("HIGH");
     delay(pause);
     digitalWrite(outputPin, LOW);
+    digitalWrite(LEDPIN, LOW);
+    Serial.print(outputPin);
+    Serial.print(",");
+    Serial.print(i);
+    Serial.print(",");
+    Serial.println("LOW");
     delay(pause);
   }
 }
