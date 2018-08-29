@@ -56,8 +56,8 @@ void interpretPacket() {
       Serial.print(command);
       Serial.println(outputNumber);
     } else {
-      Serial.println("Incorrect command.");
-      Serial.println("The output number must be 0, 1 or 2.");
+      Serial.println(F("Incorrect command."));
+      Serial.println(F("The output number must be 0, 1 or 2."));
     }
   }
   //---------------------------------------------------------------
@@ -68,8 +68,8 @@ void interpretPacket() {
       Serial.print(command);
       Serial.println(pulseNumber);
     } else {
-      Serial.println("Incorrect command.");
-      Serial.println("The pulse number must be between 1 and 15.");
+      Serial.println(F("Incorrect command."));
+      Serial.println(F("The pulse number must be between 1 and 15."));
     }
   }
   //---------------------------------------------------------------
@@ -79,18 +79,18 @@ void interpretPacket() {
       Serial.print(command);
       Serial.println(pulseLength);
     } else {
-      Serial.println("Incorrect command.");
-      Serial.println("The pulse number must be between 200 and 10000.");
+      Serial.println(F("Incorrect command."));
+      Serial.println(F("The pulse number must be between 200 and 10000."));
     }
   }
   //---------------------------------------------------------------
   if (command == "EC") {
-    Serial.print("Executing command for: ");
-    Serial.print("outputNumber - ");
+    Serial.print(F("Executing command for: "));
+    Serial.print(F("outputNumber - "));
     Serial.print(outputNumber);
-    Serial.print(", pulseNumber - ");
+    Serial.print(F(", pulseNumber - "));
     Serial.print(pulseNumber);
-    Serial.print(", pulseLength - ");
+    Serial.print(F(", pulseLength - "));
     Serial.println(pulseLength);
     executeCommand();
   }
@@ -108,11 +108,11 @@ void interpretPacket() {
 //
 //*********************************************************************************
 void printHelp(){
-  Serial.println("Use below commands to set parameters and start pulse train");
-  Serial.println("SON[NNN] - set output number, NNN - output number");
-  Serial.println("SPN[NNN] - set pulse number, NNN - pulse number");
-  Serial.println("SPL[LLL] - set pulse length, LLL - pulse length (in milliseconds)");
-  Serial.println("EC - execute command (start pulse train) on selected output");
+  Serial.println(F("Use below commands to set parameters and start pulse train"));
+  Serial.println(F("SON[NNN] - set output number, NNN - output number"));
+  Serial.println(F("SPN[NNN] - set pulse number, NNN - pulse number"));
+  Serial.println(F("SPL[LLL] - set pulse length, LLL - pulse length (in milliseconds)"));
+  Serial.println(F("EC - execute command (start pulse train) on selected output"));
 }
 //*********************************************************************************
 //
@@ -127,7 +127,7 @@ void executeCommand() {
   } else if (outputNumber == LEDPIN) {
     pulse(LEDPIN, pulseNumber, 500);
   } else {
-    Serial.println("Wrong command");    
+    Serial.println(F("Wrong command"));    
   }
 }
 
