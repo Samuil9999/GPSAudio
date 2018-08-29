@@ -4,6 +4,11 @@
 #define LEDPIN 13
 
 void setup() {
+  pinMode(OUTPIN0, OUTPUT);
+  pinMode(OUTPIN1, OUTPUT);
+  pinMode(OUTPIN2, OUTPUT);
+  pinMode(LEDPIN, OUTPUT);
+
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println(F("GPS Unit Emulator started."));
