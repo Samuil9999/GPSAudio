@@ -73,7 +73,7 @@ void interpretPacket() {
     }
   }
   //---------------------------------------------------------------
-  if (command == "SPD") {
+  if (command == "SPL") {
     //setPulseNumber();
     if(data >=200 && data <= 10000) {
       pulseLength = data;
@@ -106,6 +106,16 @@ void interpretPacket() {
 }
 
 
+//*********************************************************************************
+//
+//*********************************************************************************
+void printHelp(){
+  Serial.println("Use below commands to set parameters and start pulse train");
+  Serial.println("SON[NNN] - set output number, NNN - output number");
+  Serial.println("SPN[NNN] - set pulse number, NNN - pulse number");
+  Serial.println("SPL[LLL] - set pulse length, LLL - pulse length (in milliseconds)");
+  Serial.println("EC - execute command (start pulse train) on selected output");
+}
 //*********************************************************************************
 //
 //*********************************************************************************

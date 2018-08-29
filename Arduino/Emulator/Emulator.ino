@@ -7,7 +7,7 @@ void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println("GPS Unit Emulator started.");
-  Serial.println("cb54e42");
+  printHelp();
 }
 
 void loop() {
