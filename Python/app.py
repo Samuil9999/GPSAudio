@@ -7,7 +7,7 @@ import pygame as pg
 pg.mixer.init()
 pg.init()
 
-AUDIO_FOLDER = "/home/pi/Documents/Projects/GPSAudio/SoundMessages/wav_correct/"
+AUDIO_FOLDER = "../wav_correct/"
 
 sounds = []
 
