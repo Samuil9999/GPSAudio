@@ -74,11 +74,10 @@ void interpretPacket() {
   }
   //---------------------------------------------------------------
   if (command == "SPL") {
-    //setPulseNumber();
     if(data >=200 && data <= 10000) {
       pulseLength = data;
       Serial.print(command);
-      Serial.println(pulseNumber);
+      Serial.println(pulseLength);
     } else {
       Serial.println("Incorrect command.");
       Serial.println("The pulse number must be between 200 and 10000.");
@@ -86,15 +85,14 @@ void interpretPacket() {
   }
   //---------------------------------------------------------------
   if (command == "EC") {
-    //executeCommand();
-    executeCommand();
     Serial.print("Executing command for: ");
     Serial.print("outputNumber - ");
     Serial.print(outputNumber);
     Serial.print(", pulseNumber - ");
-    Serial.println(pulseNumber);
+    Serial.print(pulseNumber);
     Serial.print(", pulseLength - ");
     Serial.println(pulseLength);
+    executeCommand();
   }
 
   //---------------------------------------------------------------
