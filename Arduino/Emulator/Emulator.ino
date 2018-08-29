@@ -9,6 +9,10 @@ void setup() {
   pinMode(OUTPIN2, OUTPUT);
   pinMode(LEDPIN, OUTPUT);
 
+  digitalWrite(OUTPIN0, LOW);
+  digitalWrite(OUTPIN1, LOW);
+  digitalWrite(OUTPIN2, LOW);
+  
   // put your setup code here, to run once:
   Serial.begin(9600);
   Serial.println(F("GPS Unit Emulator started."));
